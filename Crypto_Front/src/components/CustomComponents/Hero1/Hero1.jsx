@@ -44,19 +44,19 @@ function Hero1() {
                 viewProp={isInView ? false : true}
               />
               <p className=" text-cyan-500"> <TextAnimation
-                text="WealthyWise"
+                text="CryptoTrace"
                 viewProp={isInView ? false : true}
               /></p>
             
             </p>
             <p className="hero-text items-center flex justify-center text-6xl font-light text-center font-Soria">
               <TextAnimation
-                text="Your Place To Make Profit"
+                text="Your Place To Get Insights"
                 viewProp={isInView ? false : true}
               />
             </p>
             <p className="hero-text text-lg my-2 font-light max-w-3xl mx-auto text-center">
-              "Empower Your Finances with AI: Track, Analyze, and Achieve Your Financial Goals Seamlessly."
+              "Empower Your Finances with AI: Track, Analyze, and Achieve Your Goals Seamlessly."
             </p>
           </div>
           <div className="hero1-img my-3">
