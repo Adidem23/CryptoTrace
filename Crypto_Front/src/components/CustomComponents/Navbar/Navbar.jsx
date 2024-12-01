@@ -1,6 +1,7 @@
-import { Button, buttonVariants } from "../../ui/button";
-import React, { useRef, useState } from "react";
-import { ModeToggle } from "./mode-toggle";
+import { Button } from "../../ui/button";
+import { useRef, useState } from "react";
+import { useOkto, } from "okto-sdk-react";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Logo from "../../../assets/Logo.png";
 import {
@@ -10,13 +11,47 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "../../ui/navigation-menu";
+import { useNavigate } from "react-router-dom";
+import { white } from "tailwindcss/colors";
+import axios from 'axios';
+
 
 const Navbar = () => {
   const [isHidden, setisHidden] = useState(false);
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
+  const Navigator = useNavigate();
+
+  const { authenticate} = useOkto();
+  const [authToken, setAuthToken] = useState(null);
+  const [UserName, setUserName] = useState("");
+
+  const handleGoogleLogin = async (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    authenticate(idToken, async (authResponse, error) => {
+      if (authResponse) {
+        setAuthToken(authResponse.auth_token);
+        console.log("Authenticated successfully, auth token:", authResponse.auth_token);
+
+        const options = {
+          method: 'GET',
+          url: 'https://sandbox-api.okto.tech/api/v1/user_from_token',
+          headers: { Authorization: `Bearer ${authResponse.auth_token}` }
+        };
+
+        await axios.request(options).then((res) => {
+          setUserName(res.data.data.email);
+        }).catch((err) => {
+          console.log(`The Error is oocured : ${err}`)
+        })
+
+      } else if (error) {
+        console.error("Authentication error:", error);
+      }
+    });
+  };
+
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const diff = y - lastYRef.current;
@@ -103,9 +138,28 @@ const Navbar = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <Button variant="ghost">Sign In</Button>
-        <Button variant="ghost">About</Button>
-        {/* <ModeToggle /> */}
+        {/* <Button variant="ghost">Sign In</Button> */}
+        {!authToken ? (
+          <GoogleLogin
+            onSuccess={handleGoogleLogin}
+            onError={(error) => console.error("Login Failed", error)}
+          />
+        ) : <><p style={{ color: white }}>{UserName}</p></>}
+
+        &nbsp;
+
+        {authToken && (
+          <Button onClick={() => {
+            Navigator("/dashboard")
+          }} variant="ghost"> Go to Dashboard </Button>
+        )}
+
+        {authToken && (
+
+          <Button onClick={googleLogout()} variant="ghost">Logout</Button>
+        )}
+
+
       </motion.div>
     </motion.nav>
   );

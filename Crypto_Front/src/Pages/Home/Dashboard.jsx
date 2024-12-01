@@ -1,12 +1,12 @@
-import React from 'react';
 import Header from '../../components/components/Header';
 import Sidebar from '../../components/components/Sidebar';
 import LineChartComponent from '../../components/components/LineChart';
 import BarChartComponent from '../../components/components/BarChart';
 import PieChartComponent from '../../components/components/PieChart';
-// import Header from '@/components/components/Header';
+
 
 const DashBoardPage = () => {
+  
   return (
     <div className="flex flex-col h-screen">
       <Header />

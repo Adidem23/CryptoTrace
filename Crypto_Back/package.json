@@ -1,0 +1,11 @@
+{
+  "name": "crytotrace",
+  "version": "1.0.0",
+  "description": "This is package built at Unfold24",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya Suryawanshi",
+  "license": "ISC"
+}
