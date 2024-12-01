@@ -7,19 +7,22 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ThirdwebProvider } from "thirdweb/react";
 import { PetraWallet } from "petra-plugin-wallet-adapter";
 import { AptosWalletAdapterProvider } from "@aptos-labs/wallet-adapter-react";
-const wallets = [new PetraWallet()];
+import { NextUIProvider } from '@nextui-org/react'
 
+const wallets = [new PetraWallet()];
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AptosWalletAdapterProvider plugins={wallets} autoConnect={true}>
-      <ThirdwebProvider >
-        <GoogleOAuthProvider clientId='913620313468-sl42mg4tcbpqu47nnag5l885so208kj4.apps.googleusercontent.com'>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </GoogleOAuthProvider>
-      </ThirdwebProvider>
-    </AptosWalletAdapterProvider>
+    <NextUIProvider>
+      <AptosWalletAdapterProvider plugins={wallets} autoConnect={true}>
+        <ThirdwebProvider >
+          <GoogleOAuthProvider clientId='913620313468-sl42mg4tcbpqu47nnag5l885so208kj4.apps.googleusercontent.com'>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </GoogleOAuthProvider>
+        </ThirdwebProvider>
+      </AptosWalletAdapterProvider>
+    </NextUIProvider>
   </React.StrictMode>
 )

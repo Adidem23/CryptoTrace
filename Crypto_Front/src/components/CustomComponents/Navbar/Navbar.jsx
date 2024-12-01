@@ -1,7 +1,7 @@
 import { Button } from "../../ui/button";
 import { useRef, useState } from "react";
-import { useOkto, } from "okto-sdk-react";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { useOkto } from "okto-sdk-react";
+import { GoogleLogin } from "@react-oauth/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Logo from "../../../assets/Logo.png";
 import {
@@ -23,7 +23,7 @@ const Navbar = () => {
   const lastYRef = useRef(0);
   const Navigator = useNavigate();
 
-  const { authenticate} = useOkto();
+  const { authenticate } = useOkto();
   const [authToken, setAuthToken] = useState(null);
   const [UserName, setUserName] = useState("");
 
@@ -152,11 +152,6 @@ const Navbar = () => {
           <Button onClick={() => {
             Navigator("/dashboard")
           }} variant="ghost"> Go to Dashboard </Button>
-        )}
-
-        {authToken && (
-
-          <Button onClick={googleLogout()} variant="ghost">Logout</Button>
         )}
 
 
