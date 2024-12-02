@@ -46,7 +46,7 @@ Leverages Okto SDK for safe and simple user login and authentication, ensuring s
 • Actionable Insights:
 Provides users with easy-to-understand insights from blockchain data, helping them make informed decisions.
 
-### Youtube : https://www.youtube.com/watch?v=tl7Alt42xvs
+### Youtube Video: https://www.youtube.com/watch?v=tl7Alt42xvs
 
 # Architcture Diagram : 
 ![blockchain_flowchart](https://github.com/user-attachments/assets/4727ead0-f183-478b-934a-cce49228511b)
@@ -58,6 +58,4 @@ Provides users with easy-to-understand insights from blockchain data, helping th
  - [![My Skills](https://skillicons.dev/icons?i=javascript&perline=3)](https://skillicons.dev) JavaScript
 
 # Deployments :
-- Postman API Testing : https://documenter.getpostman.com/view/23821977/2sAXjJ6Z3d
-- Backend Hosted API : https://eim-and-jira-sim-back.vercel.app/
-- Frontend Hosterd Server : https://eim-and-jira-sim-front.vercel.app/
+- Backend Hosted NPM Package : https://www.npmjs.com/package/crytotrace
