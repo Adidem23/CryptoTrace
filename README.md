@@ -46,7 +46,7 @@ Leverages Okto SDK for safe and simple user login and authentication, ensuring s
 • Actionable Insights:
 Provides users with easy-to-understand insights from blockchain data, helping them make informed decisions.
 
-- Youtube : https://youtu.be/vi2NSczOVG8?si=u_BCq_6KJqdTxkO7
+Youtube : https://www.youtube.com/watch?v=tl7Alt42xvs
 
 # Architcture Diagram : 
 ![blockchain_flowchart](https://github.com/user-attachments/assets/4727ead0-f183-478b-934a-cce49228511b)
