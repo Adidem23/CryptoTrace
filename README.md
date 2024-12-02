@@ -57,17 +57,6 @@ Youtube : https://www.youtube.com/watch?v=tl7Alt42xvs
  - [![My Skills](https://skillicons.dev/icons?i=python&perline=3)](https://skillicons.dev) Python
  - [![My Skills](https://skillicons.dev/icons?i=javascript&perline=3)](https://skillicons.dev) JavaScript
 
-# Prerequisites : 
-- python
-- NodeJs
-- Trial JIRA DOMAIN
-- MongoDB ATLAS ACCOUNT
-- Jenkins Installed on System
-
-# Installation : 
-Follow The Installation manual and install dependencies 
-
-
 # Deployments :
 - Postman API Testing : https://documenter.getpostman.com/view/23821977/2sAXjJ6Z3d
 - Backend Hosted API : https://eim-and-jira-sim-back.vercel.app/
