@@ -24,27 +24,28 @@
 
 ## About The Project : 
 
-## EIMSIM : THE EIM AND JIRA SIMULATOR 
-In many organizations, the process of creating and updating JIRA tickets based on data from the EIM system is manual, time-consuming, and prone to errors. This disjointed process can lead to delays in task management, miscommunication, and inefficient tracking of issues and progress. The need for a more automated and seamless integration between EIM systems and JIRA is critical to overcoming these challenges and improving overall productivity
+This project is designed to simplify and enhance the experience of interacting with multiple blockchain networks. It offers a unified platform where users can securely log in, access real-time blockchain data, and predict future gas fees using machine learning.
 
 ## Key Features :
 
-•	Enhance Accuracy and Consistency:
-Ensure that tickets are created with accurate and consistent information, reducing the chances of human error that can occur during manual entry.
+•	Multi-Chain Support:
+Access and interact with different blockchain networks like Base Sepolia and Aptos Testnet/Devnet from a single platform.
 
-•	Integration with Monitoring Tools:
-Seamlessly integrate with existing monitoring and alerting tools to trigger JIRA ticket creation based on predefined thresholds or events, ensuring that issues are captured in real-time.
+• Real-Time Data Fetching:
+Automatically fetch transaction data, contract deployments, and other on-chain activities without the need for manual searches.
 
-•	Customizable Workflow Automation:
-Implement customizable workflows in JIRA that automatically assign, prioritize, and transition tickets based on the type of data entry or detected issue.
+• Gas Fee Prediction:
+Uses machine learning to predict future gas fees, helping users optimize their transaction costs.
 
-•	Real-Time Notifications and Alerts:
-Set up real-time notifications to relevant team members upon ticket creation, ensuring prompt attention and response to critical issues.
+• CryptoTrace NPM Package:
+A reusable Node.js package for developers to easily integrate blockchain insights and transaction data into frontend and backend applications.
 
-•	Comprehensive Reporting and Analytics:
-Develop detailed reporting and analytics features to track the performance of the automated ticketing system, identify trends, and optimize the process continuously.
+• Secure Authentication:
+Leverages Okto SDK for safe and simple user login and authentication, ensuring secure access to the platform.
 
-# Video :
+• Actionable Insights:
+Provides users with easy-to-understand insights from blockchain data, helping them make informed decisions.
+
 - Youtube : https://youtu.be/vi2NSczOVG8?si=u_BCq_6KJqdTxkO7
 
 # Architcture Diagram : 
