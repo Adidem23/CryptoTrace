@@ -49,17 +49,13 @@ Provides users with easy-to-understand insights from blockchain data, helping th
 - Youtube : https://youtu.be/vi2NSczOVG8?si=u_BCq_6KJqdTxkO7
 
 # Architcture Diagram : 
-![Untitled-2023-10-05-0753](https://github.com/user-attachments/assets/92053687-cfe9-4b30-9e8b-62d0e0a78063)
-
+![blockchain_flowchart](https://github.com/user-attachments/assets/4727ead0-f183-478b-934a-cce49228511b)
 
 # Built With : 
 
  - [![My Skills](https://skillicons.dev/icons?i=react&perline=3)](https://skillicons.dev) ReactJs
- - [![My Skills](https://skillicons.dev/icons?i=nodejs&perline=3)](https://skillicons.dev) NodeJs
- - [![My Skills](https://skillicons.dev/icons?i=express&perline=3)](https://skillicons.dev) ExpressJs
- - [![My Skills](https://skillicons.dev/icons?i=jenkins&perline=3)](https://skillicons.dev) Jenkins
  - [![My Skills](https://skillicons.dev/icons?i=python&perline=3)](https://skillicons.dev) Python
-- [![My Skills](https://skillicons.dev/icons?i=mongodb&perline=3)](https://skillicons.dev) MongoDB
+ - [![My Skills](https://skillicons.dev/icons?i=javascript&perline=3)](https://skillicons.dev) JavaScript
 
 # Prerequisites : 
 - python
