@@ -1,6 +1,6 @@
 <div align="center">
  <img src="https://github.com/user-attachments/assets/68f7b8f9-cd39-457c-bd8c-4723c32dc04e" src="No Image" />
-  <h3 align="center">CryptoTrace: The Crypto Wallet Activity Tracker and Analazer </h3>
+  <h3 align="center">CryptoTrace: The Crypto Wallet Activity Tracker and Analazer</h3>
 </div>
 <details>
   <summary>Table of Contents</summary>
@@ -46,7 +46,7 @@ Leverages Okto SDK for safe and simple user login and authentication, ensuring s
 • Actionable Insights:
 Provides users with easy-to-understand insights from blockchain data, helping them make informed decisions.
 
-Youtube : https://www.youtube.com/watch?v=tl7Alt42xvs
+### Youtube : https://www.youtube.com/watch?v=tl7Alt42xvs
 
 # Architcture Diagram : 
 ![blockchain_flowchart](https://github.com/user-attachments/assets/4727ead0-f183-478b-934a-cce49228511b)
