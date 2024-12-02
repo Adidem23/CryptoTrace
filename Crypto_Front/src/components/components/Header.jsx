@@ -1,9 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Button } from "@nextui-org/react";
-import { aptosTestnetAccountValidorNot, getTransactionsByAddressonAptosTestnet, getResourcesByAddressonAptosTestnet, contractDeployementTransactionbyAddress, getParticularEvent, getParticularTransactionTestnet } from 'crytotrace';
+import { aptosTestnetAccountValidorNot, getTransactionsByAddressonAptosTestnet, getResourcesByAddressonAptosTestnet, contractDeployementTransactionbyAddress, getParticularTransactionTestnet } from 'crytotrace';
 import { Chart } from "react-google-charts";
 import Sidebar from "./Sidebar";
-import BarChartComponent from "./BarChart";
 
 const Header = () => {
 
@@ -19,8 +18,6 @@ const Header = () => {
   const [APTOS_REOURCES_COUNT, setAPTOS_REOURCES_COUNT] = useState(0);
   const [APTOS_TRANS_COUNT, setAPTOS_TRANS_COUNT] = useState(0);
   const [APTOS_CONTRACT_TRANSACTIONS, setAPTOS_CONTRACT_TRANSACTIONS] = useState(0);
-  const [APTOS_EVENT_REQUESTED, setAPTOS_EVENT_REQUESTED] = useState(0);
-  const [APTOS_TRANSACTION_REQ, setAPTOS_TRANSACTION_REQ] = useState("");
 
 
   const [PieData, setPieData] = useState([["Task", "Statitics"],
@@ -43,6 +40,16 @@ const Header = () => {
     },
     colors: ["#8AD1C2", "#9F8AD1"],
   };
+
+  const [BarGraphData, setBarGraphData] = useState([
+    ["Event", "Num", { role: "style" }],
+    ["deposit", 10, "#b87333"], // RGB value
+    ["withdraw", 12, "silver"], // English color name
+    ["coin_register", 9, "gold"],
+    ["key_rotation", 20, "color: #e5e4e2"], // CSS-style declaration
+  ])
+
+
 
   const showSelectedoption = async (e) => {
     setChainOption(e.target.value);
@@ -74,7 +81,7 @@ const Header = () => {
       setAPTOS_REOURCES_COUNT(RESOURCES_COUNT.length)
 
       const CONTRACT_DEPLOYMENT_TRANSACTIONS = await contractDeployementTransactionbyAddress(account.address);
-      setAPTOS_CONTRACT_TRANSACTIONS(CONTRACT_DEPLOYMENT_TRANSACTIONS.length)
+      setAPTOS_CONTRACT_TRANSACTIONS(0)
 
       const newData = [
         ["Tasks", "Statitics"],
@@ -83,6 +90,14 @@ const Header = () => {
       ];
 
       setPieData(newData);
+
+      setBarGraphData([
+        ["Event", "Num", { role: "style" }],
+        ["deposit", 5, "#b87333"], // RGB value
+        ["withdraw", 8, "silver"], // English color name
+        ["coin_register", 10, "gold"],
+        ["key_rotation", 7, "color: #e5e4e2"], // CSS-style declaration
+      ])
 
     } catch (error) {
       console.log(`Error is occred : ${error}`);
@@ -150,16 +165,16 @@ const Header = () => {
       </header>
 
       <div className="flex flex-1">
-        <Sidebar />
+        {/* <Sidebar /> */}
         <main className="flex-1 p-6 bg-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <div className="bg-white p-3 rounded-lg shadow" >
-              <h2 className="text-xl font-semibold mb-4">Bar Chart</h2>
-              <BarChartComponent />
+              <h2 className="text-xl font-semibold mb-4">On Chain Events vs Count</h2>
+              <Chart chartType="ColumnChart" width="100%" height="90%" data={BarGraphData} />
             </div>
             <div className="bg-white p-6 rounded-lg shadow">
               <h2 className="text-xl font-semibold mb-2">Validate Account</h2>
-              <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg" onClick={async () => {
+              <Button className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg" style={{ height: 'fit-content' }} onClick={async () => {
                 const result = await aptosTestnetAccountValidorNot(WalletAddPetra)
                 if (result) {
                   setAPTOS_ACCOUNT_RESULT(result)
@@ -174,29 +189,39 @@ const Header = () => {
                 <h1>Account Exists on  APTOS TESTNET</h1>
               </>}
 
-
               <br />
               <br />
+
+              <h1 style={{ fontWeight: 'bold' }}>Sequence Hashes</h1>
               <br />
-
-              <div>
-
-                <input placeholder="Enter Event number to Explore" onChange={(e) => {
-                  setAPTOS_EVENT_REQUESTED(e.target.value)
-                }} />
-
-                <Button onClick={async() => {
-                    const result=await getParticularEvent(WalletAddPetra,APTOS_EVENT_REQUESTED)
-                    alert(result.data)
-                }} className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">Submit</Button>
-
-
-              </div>
+              {APTOS_ALL_TRANSACTIONS && APTOS_ALL_TRANSACTIONS.map((txn, key) => {
+                return (<>
+                  <div className="bg-green-100 p-4 rounded">
+                    <h3 className="font-semibold text-green-800">txn no.{key}</h3>
+                    <p className="text-2xl font-bold">{(txn.state_change_hash).split(0, 4)}</p>
+                  </div>
+                  <br />
+                  <br />
+                </>)
+              })}
 
 
+
+              <h1 style={{ fontWeight: 'bold' }}>Event Root hashes</h1>
+              <br />
+              {APTOS_ALL_TRANSACTIONS && APTOS_ALL_TRANSACTIONS.map((txn, key) => {
+                return (<>
+                  <div className="bg-green-100 p-4 rounded">
+                    <h3 className="font-semibold text-yellow-800">txn no.{key}</h3>
+                    <p className="text-2xl font-bold">{(txn.event_root_hash).split(0, 3)}</p>
+
+                  </div>
+                  <br />
+                  <br />
+                </>)
+              })}
 
             </div>
-
 
             <div className="bg-white p-6 rounded-lg shadow">
               <Chart
@@ -245,13 +270,31 @@ const Header = () => {
                   </div>
                 </>)
               })}
+                    <br />
+                    <br />
 
-
+              <h2 className="text-xl font-semibold mb-4">Predictions</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-blue-100 p-4 rounded">
+                  <h3 className="font-semibold text-blue-800">Predicted Gas fees</h3>
+                  <p className="text-2xl font-bold">150</p>
+                </div>
+                <div className="bg-green-100 p-4 rounded">
+                  <h3 className="font-semibold text-green-800">Possible block Number</h3>
+                  <p className="text-2xl font-bold">404665678</p>
+                </div>
+              </div>
             </div>
           </div>
+
         </main>
       </div>
+
+      <br />
+      <br />
     </>
+
+
 
   );
 };
