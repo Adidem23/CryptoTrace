@@ -1,5 +1,5 @@
 <div align="center">
- ![Preview](https://github.com/user-attachments/assets/ae5b55dc-dde6-4269-8f1c-df3d7070424b)
+ <img src="https://github.com/user-attachments/assets/68f7b8f9-cd39-457c-bd8c-4723c32dc04e" src="No Image" />
   <h3 align="center">CryptoTrace: The Crypto Wallet Activity Tracker and Analazer </h3>
 </div>
 <details>
