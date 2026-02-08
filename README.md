@@ -59,3 +59,5 @@ Provides users with easy-to-understand insights from blockchain data, helping th
 
 # Deployments :
 - Backend Hosted NPM Package : https://www.npmjs.com/package/crytotrace
+
+
